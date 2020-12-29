@@ -4,6 +4,7 @@ import validator from 'validator'
 
 
 const Form=(props)=>{
+    const {formSubmit} = props
     const [username,setUsername] = useState("")
     const [email,setEmail] = useState("")
     const [password,setPassword] = useState("")
@@ -42,8 +43,8 @@ const Form=(props)=>{
             email:email,
             password : password
         }
-        // formSubmit(formData) 
-        console.log(formData);
+        formSubmit(formData) 
+        // console.log(formData);
         setUsername("")
         setEmail("")
         setPassword("")

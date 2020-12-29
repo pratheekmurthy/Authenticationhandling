@@ -1,28 +1,43 @@
 import React, { useState,useEffect } from 'react'
+import axios from 'axios'
 
 
 const Login =(props) =>{
+    const {dataSubmit} = props
     const [email,setemail] =useState("")
     const [password,setPassword] = useState("")
     const [formErrors,setFormErrors] =useState({})
     const errors ={}
 
+    
+    const formSubmit=(data)=>{
+       
+        axios.post("http://dct-user-auth.herokuapp.com/users/login",data)
+        .then((response)=>{
+            const result = response.data;
+            localStorage.setItem("token",result.token)
+            
+        })
+        .catch((err)=>{
+            console.log(err.message);
+        })
+
+    }
+
     const runvalidations =()=>{
+        
         if(email.trim().length === 0){
             errors.email = 'email cannot be blank'
         }
         if(password.trim().length === 0){
             errors.password = "password Cannot be blank"
         }
-        console.log(errors.email,errors.password)
     }
 
     const handleEmail =(e)=> setemail(e.target.value)
     const handlepassword =(e) => setPassword(e.target.value)
 
     const handleSubmit=(e)=>{
-        
-        console.log("i am here")
             e.preventDefault()
             runvalidations()
     
@@ -32,11 +47,12 @@ const Login =(props) =>{
                 email:email,
                 password : password
             }
-            console.log(formData);
+            formSubmit(formData)
+            // console.log(formData)
             setemail("")
             setPassword("")
             } else {
-                    console.log('form errors', errors)
+                    // console.log('form errors', errors)
                     setFormErrors(errors)
                     }
 
