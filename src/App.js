@@ -1,5 +1,5 @@
-import React,{useState,useEffect} from 'react'
-import {Link, BrowserRouter,Route} from 'react-router-dom'
+import React,{useState,useEffect, Component} from 'react'
+import {Link, BrowserRouter,Route,Redirect} from 'react-router-dom'
 import Register from './Register'
 import Home from './Home'
 import Login from './Login'
@@ -16,6 +16,17 @@ const App=(props)=>{
         setToken(token)
     },[token])
 
+    const PrivateRoute =({component :Component,path,...rest})=>{
+        return <Route path={path} render={(props)=>{
+            if(!token){
+                return <Redirect to="/"/>
+            }
+            return <Component {...props}/>
+
+        }} />
+    }
+    
+            
     
     
     return (<div> 
@@ -24,10 +35,13 @@ const App=(props)=>{
         <Route path="/" component={Home} exact={true}/>
         <Route path="/register" component={Register} exact={true}/>
         <Route path="/login" component={Login} exact={true}/>
-        <Route path ="/account" component={Account} exact={true}/>
+        {/* <Route path ="/account" component={Account} exact={true}/> */}
         <Route path="/logout" component={Logout} exact={true}/>
+        <PrivateRoute path="/account" component={Account}/>
+       
         </BrowserRouter>
     </div>)
 }
+
 
 export default App
