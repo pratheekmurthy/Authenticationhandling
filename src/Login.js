@@ -1,9 +1,11 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 
 const Login =(props) =>{
-    const {dataSubmit} = props
+    const {handleLogin} = props
+    const [login,setLogin] = useState(false)
     const [email,setemail] =useState("")
     const [password,setPassword] = useState("")
     const [formErrors,setFormErrors] =useState({})
@@ -16,6 +18,8 @@ const Login =(props) =>{
         .then((response)=>{
             const result = response.data;
             localStorage.setItem("token",result.token)
+            setLogin(true)
+            
             
         })
         .catch((err)=>{
@@ -68,6 +72,7 @@ const Login =(props) =>{
             <input type="password" placeholder="password" onChange={handlepassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/>
             <input type="submit" value="Login"/><button>Cancel</button>
         </form>
+        {login && <Redirect to="/"/>}
     </div>)
 }
 

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
 const Logout =(props)=>{
+    const {handelogout} = props
     const [token,setToken] = useState("")
     useEffect(()=>{
         const token=localStorage.getItem("token")
@@ -21,8 +22,9 @@ const Logout =(props)=>{
         })
     },[])
    
+    
     return (<div>
-        { !token ? <Redirect to="/"/> : <Redirect to="/logout"/>}
+        { !token ? <Redirect to="/" /> : <Redirect to="/logout"/>}
 
     </div>)
 }
