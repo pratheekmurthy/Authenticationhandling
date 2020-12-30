@@ -1,6 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import validator from 'validator'
+import './style/register.css'
 
 
 const Form=(props)=>{
@@ -54,12 +55,12 @@ const Form=(props)=>{
                 }
     }
     
-    return (<div>
+    return (<div className="form">
         <h2>Register With Us</h2>
         <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter username" onChange={handleName}/><br/>{formErrors.name && <span> { formErrors.name } </span>}<br/>
-        <input type="email" placeholder="Enter email"onChange={handleEmail}/><br/>{formErrors.email && <span> { formErrors.email } </span>}<br/>
-        <input type="password" placeholder="Enter password" onChange={handlePassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/>
+        <input type="text" placeholder="Enter username" onChange={handleName}/><br/>{formErrors.name && <span className="font"> { formErrors.name } </span>}<br/>
+        <input type="email" placeholder="Enter email"onChange={handleEmail}/><br/>{formErrors.email && <span className="font"> { formErrors.email } </span>}<br/>
+        <input type="password" placeholder="Enter password" onChange={handlePassword}/><br/>{formErrors.password && <span className="font"> { formErrors.password } </span>}<br/>
         <input type="submit" value="Register"/><button >Cancel</button>
         </form>
         </div>)

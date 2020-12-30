@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import axios from 'axios'
 import {Link, BrowserRouter,Route,Redirect} from 'react-router-dom'
 import Form from './Form'
+import swal from 'sweetalert'
 
 
 const Register =(props)=>{
@@ -12,6 +13,7 @@ const Register =(props)=>{
         .then((response)=>{
             const result = response.data;
             setregistered(true)
+            swal("success!", "Succesfully Registered", "success")
             
         })
         .catch((err)=>{

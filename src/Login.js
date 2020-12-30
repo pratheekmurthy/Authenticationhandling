@@ -1,6 +1,8 @@
 import React, { useState,useEffect } from 'react'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom'
+import swal from 'sweetalert'
+import './style/login.css'
 
 
 const Login =(props) =>{
@@ -19,7 +21,7 @@ const Login =(props) =>{
             const result = response.data;
             localStorage.setItem("token",result.token)
             setLogin(true)
-            
+            swal("success!", "You are logged in!", "success")
             
         })
         .catch((err)=>{
@@ -65,12 +67,12 @@ const Login =(props) =>{
                 
 
 
-    return (<div>
+    return (<div className="form">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
             <input type="email" placeholder="email" onChange={handleEmail}/><br/>{formErrors.email && <span> { formErrors.email } </span>}<br/>
             <input type="password" placeholder="password" onChange={handlepassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/>
-            <input type="submit" value="Login"/><button>Cancel</button>
+            <input type="submit" value="Login" className="submit"/><button>Cancel</button>
         </form>
         {login && <Redirect to="/"/>}
     </div>)

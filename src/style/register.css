@@ -1,0 +1,12 @@
+.font {
+  color: red;
+}
+
+.form {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  text-align: center;
+  padding: 20px 80px 20px 80px;
+  border-radius: 15px;
+}

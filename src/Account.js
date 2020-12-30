@@ -27,15 +27,15 @@ const Account =(props)=>{
         <h2>User Auth</h2>
         <table>
             <tr>
-                <td><h3>username</h3></td>
+                <td><h3>username :</h3></td>
                 <td><h3>{data.username}</h3></td>
             </tr>
             <tr>
-                <td><h3>email</h3></td>
+                <td><h3>email : </h3></td>
                 <td><h3>{data.email}</h3></td>
             </tr>
             <tr>
-                <td><h3>join date</h3></td>
+                <td><h3>join date :</h3></td>
                 <td><h3>{data.createdAt}</h3></td>
             </tr>
         </table>

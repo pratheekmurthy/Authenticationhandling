@@ -1,0 +1,17 @@
+.dangerfont {
+  color: red;
+}
+
+.form {
+  position: absolute;
+  left: 40%;
+  top: 20%;
+  text-align: center;
+  padding: 20px 80px 20px 80px;
+  border-radius: 25px;
+  border: 4px solid;
+}
+
+.submit {
+  background-color: green;
+}
