@@ -26,6 +26,7 @@ const Register =(props)=>{
 
     return (<div>
         <Form formSubmit={formSubmit}/>
+        {registered ? <Redirect to="/login"/> : <Redirect to="/register"/>}
     </div>)
 }
 

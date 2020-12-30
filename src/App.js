@@ -18,10 +18,10 @@ const App=(props)=>{
 
     const PrivateRoute =({component :Component,path,...rest})=>{
         return <Route path={path} render={(props)=>{
-            if(!token){
-                return <Redirect to="/"/>
+            if(token){
+                return <Component {...props}/>
             }
-            return <Component {...props}/>
+            return <Redirect to="/login"/>
 
         }} />
     }

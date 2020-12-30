@@ -1,5 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const Logout =(props)=>{
     const [token,setToken] = useState("")
@@ -11,15 +12,19 @@ const Logout =(props)=>{
         .then((response)=>{
             const result = response.data;
             console.log(result)
+            setToken("")
             localStorage.clear()
             
         })
         .catch((err)=>{
             console.log(err.message);
         })
-    },[token])
+    },[])
    
-    return (<div></div>)
+    return (<div>
+        { !token ? <Redirect to="/"/> : <Redirect to="/logout"/>}
+
+    </div>)
 }
 
 export default Logout
