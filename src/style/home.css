@@ -26,3 +26,8 @@ img {
   right: 5%;
   width: 40%;
 }
+
+.font {
+  font-style: oblique;
+  color: black;
+}

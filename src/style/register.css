@@ -10,3 +10,19 @@
   padding: 20px 80px 20px 80px;
   border-radius: 15px;
 }
+
+.submit {
+  background-color: green;
+  font-size: 12px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-style: oblique;
+}
+
+.cancel {
+  background-color: red;
+  font-size: 12px;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-style: oblique;
+}

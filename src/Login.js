@@ -6,7 +6,7 @@ import './style/login.css'
 
 
 const Login =(props) =>{
-    const {handleLogin} = props
+    const {handelogin} = props
     const [login,setLogin] = useState(false)
     const [email,setemail] =useState("")
     const [password,setPassword] = useState("")
@@ -20,6 +20,7 @@ const Login =(props) =>{
         .then((response)=>{
             const result = response.data;
             localStorage.setItem("token",result.token)
+            handelogin(result.token);
             setLogin(true)
             swal("success!", "You are logged in!", "success")
             
@@ -30,6 +31,11 @@ const Login =(props) =>{
 
     }
 
+    
+    const handleCancel =(e)=>{
+        window.location.reload()
+    }
+    
     const runvalidations =()=>{
         
         if(email.trim().length === 0){
@@ -72,7 +78,7 @@ const Login =(props) =>{
         <form onSubmit={handleSubmit}>
             <input type="email" placeholder="email" onChange={handleEmail}/><br/>{formErrors.email && <span> { formErrors.email } </span>}<br/>
             <input type="password" placeholder="password" onChange={handlepassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/>
-            <input type="submit" value="Login" className="submit"/><button>Cancel</button>
+            <input type="submit" value="Login" className="submit"/><button className="cancel" onClick={handleCancel}>Cancel</button>
         </form>
         {login && <Redirect to="/"/>}
     </div>)

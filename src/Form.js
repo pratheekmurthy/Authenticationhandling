@@ -17,6 +17,10 @@ const Form=(props)=>{
     const handlePassword =(e) => setPassword(e.target.value)
     // const handleCancel =(e)=> window.reload()
 
+    const handleCancel =(e)=>{
+        window.location.reload()
+    }
+
     const runValidations = () => {
         //name
         if(username.trim().length === 0) {
@@ -61,7 +65,7 @@ const Form=(props)=>{
         <input type="text" placeholder="Enter username" onChange={handleName}/><br/>{formErrors.name && <span className="font"> { formErrors.name } </span>}<br/>
         <input type="email" placeholder="Enter email"onChange={handleEmail}/><br/>{formErrors.email && <span className="font"> { formErrors.email } </span>}<br/>
         <input type="password" placeholder="Enter password" onChange={handlePassword}/><br/>{formErrors.password && <span className="font"> { formErrors.password } </span>}<br/>
-        <input type="submit" value="Register"/><button >Cancel</button>
+        <input type="submit" value="Register" className="submit"/><button className="cancel" onClick={handleCancel}>Cancel</button>
         </form>
         </div>)
 }

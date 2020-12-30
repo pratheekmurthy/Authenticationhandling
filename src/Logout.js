@@ -14,6 +14,7 @@ const Logout =(props)=>{
             const result = response.data;
             console.log(result)
             setToken("")
+            handelogout()
             localStorage.clear()
             
         })
