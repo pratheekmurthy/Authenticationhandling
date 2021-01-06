@@ -5,6 +5,7 @@ import Home from './Home'
 import Login from './Login'
 import Account from './Account'
 import Logout from './Logout'
+import Notes from './notes'
 
 
 
@@ -43,23 +44,21 @@ const App=(props)=>{
         }} />
     }
     
+    
             
     
     
     return (<div> 
         <BrowserRouter>
         <div className="nav">
-        <Link to="/">Home</Link>|{token ?(<Link to="/account">Account</Link>) : (<Link to="/register">register</Link>) } | {token ?(<Link to="/logout">Logout</Link>) : (<Link to="/login">Login</Link>) }</div>
-        {/* <Route path="/" exact render={()=>{ return <Home handelogout={handelogout} isLogIn={isLogIn}/>}}/> */}
-        
-        {/* <Route path="//" render={(props)=>(<Home {...props} token={token}/>)}/> */}
+        <Link to="/">Home</Link>|{token ?(<Link to="/account">Account</Link>) : (<Link to="/register">register</Link>) } {token && <Link to="/mynotes"> |My notes</Link>}|{token ?(<Link to="/logout">Logout</Link>) : (<Link to="/login">Login</Link>) }</div>
+       
         <Route path="/" component={Home} exact={true}/>
         <Route path="/register" component={Register} exact={true}/>
         <Route path="/login" render={(props)=>(<Login {...props} handelogin={handelogin}/>)}/>
-        {/* <Route path="/login" component={Login} exact={true}/> */}
-        {/* <Route path ="/account" component={Account} exact={true}/> */}
+        <Route path="/mynotes" component={Notes}/>
         <Route path="/logout" render={(props)=>(<Logout {...props} handelogout={handelogout}/>)}/>
-        {/* <Route path="/logout" component={Logout} exact={true}/> */}
+       
         <PrivateRoute path="/account" component={Account}/>
        
         </BrowserRouter>
