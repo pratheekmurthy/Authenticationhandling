@@ -1,5 +1,5 @@
 import React,{useState,useEffect, Component} from 'react'
-import {Link, BrowserRouter,Route,Redirect,useHistory} from 'react-router-dom'
+import {Link, BrowserRouter,Route,Redirect} from 'react-router-dom'
 import Register from './Register'
 import Home from './Home'
 import Login from './Login'

@@ -5,6 +5,7 @@ import axios from 'axios'
 
 
 const NoteForm =(props)=>{
+    const {notes,setNotes} = props
     // const {formSubmit,isSaved,toggleIsSaved, id: slno, title:tasktitle,status :taskstatus} = props
     // const {formSubmit} = props
     const [title,setTitle] = useState("")
@@ -21,6 +22,11 @@ const NoteForm =(props)=>{
     //    }
 
     // },[isSaved])
+
+    const add=(note)=>{
+        setNotes([note,...notes])
+    }
+    
     const formSubmit =(note)=>{
         console.log(note)
         
@@ -31,6 +37,7 @@ const NoteForm =(props)=>{
         })
             .then((response)=>{
                 const result=response.data
+                add(result)
                 alert("Added")
                 
           })
@@ -50,7 +57,6 @@ const NoteForm =(props)=>{
     }
 
     const handleTitle =(e)=>{
-        
         setTitle(e.target.value)
     }
 
@@ -83,7 +89,7 @@ const NoteForm =(props)=>{
     return (<div>
         <form onSubmit ={handleSubmit}>
             <input type ="text" value ={title} onChange={handleTitle} placeholder="Title"/><br/>
-            <textarea placeholder="body" onChange={handlebody}></textarea><br/>
+            <textarea placeholder="body" value={body}onChange={handlebody}></textarea><br/>
             <input type ="submit" value="save"/>
         </form>
     </div>)

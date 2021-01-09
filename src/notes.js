@@ -22,11 +22,12 @@ const Notes =(props)=>{
                 console.log(err.message);
             })
         },[])
-    
+        
+        
 
     return (<div>
-       <NotesList notes={notes} setNotes={setNotes}/>
-       <NoteForm/>
+       <NotesList notes={notes} setNotes={setNotes} />
+       <NoteForm notes={notes} setNotes={setNotes}/>
     </div>)
 }
 
