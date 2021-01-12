@@ -1,5 +1,5 @@
 .image {
-  position: absolute;
+  position: relative;
   top: 10%;
   left: 5%;
   right: 5%;
@@ -7,14 +7,14 @@
 
 img {
   height: 500px;
-  width: 1370px;
+  width: 1200px;
   opacity: 60%;
   border-radius: 5px;
   max-width: 100%;
 }
 
 .leftcontent {
-  position: absolute;
+  position: relative;
   top: 81%;
   left: 5%;
   width: 40%;

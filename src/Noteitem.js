@@ -22,7 +22,6 @@ const Noteitem =(props)=>{
     }
 
     
-    
     const removeNote =(id)=>{
         // console.log(id)
         const confirm = window.confirm(" Are sure want to remove?")
