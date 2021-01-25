@@ -1,6 +1,7 @@
 import React from 'react'
 import swal from 'sweetalert'
 import axios from 'axios'
+import './style/login.css'
 
 
 
@@ -36,7 +37,7 @@ const Noteitem =(props)=>{
                 const result=response.data
                 remove(result._id)
                 console.log(result._id)
-                swal(`Removed`)      
+                swal(`Good Job`)      
                    
           })
             .catch((err)=>{
@@ -47,11 +48,16 @@ const Noteitem =(props)=>{
     }
     
 
-    return (<div>
-        <h1 onClick={showdetails}>{title}</h1>
-        <button onClick={()=>{
+    return (<div className="cardsize">
+        <div class="card">
+  <div class="card-body">
+  <h3 onClick={showdetails}>{title}</h3>
+        <button  class="btn btn-success" onClick={()=>{
             removeNote(_id)
-        }}>remove</button>
+        }}>Work Done</button>
+  </div>
+</div>
+       
         
     </div>)
 }

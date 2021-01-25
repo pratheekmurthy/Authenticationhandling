@@ -1,5 +1,8 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import './style/login.css'
+import './style/addform.css'
+import swal from 'sweetalert'
 
 
 
@@ -38,7 +41,8 @@ const NoteForm =(props)=>{
             .then((response)=>{
                 const result=response.data
                 add(result)
-                alert("Added")
+                swal("success!", "Succesfully Task Added", "success")
+                
                 
           })
             .catch((err)=>{
@@ -86,12 +90,23 @@ const NoteForm =(props)=>{
     }
     
     
-    return (<div>
+    return (<div className="form1">
+    <div className="cardsize1">
         <form onSubmit ={handleSubmit}>
-            <input type ="text" value ={title} onChange={handleTitle} placeholder="Title"/><br/>
-            <textarea placeholder="body" value={body}onChange={handlebody}></textarea><br/>
-            <input type ="submit" value="save"/>
-        </form>
+        <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Add New Task</h5>
+            <div class="mb-3">
+        <input type="text" class="form-control" value ={title} id="formGroupExampleInput" placeholder="Task Title"  onChange={handleTitle} />
+        </div>
+        <div class="form-floating">
+        <textarea class="form-control" value={body}onChange={handlebody} placeholder="Task Details" id="floatingTextarea2" ></textarea>
+        </div><br/>
+        <input type ="submit" value="Add" class="btn btn-success"/>
+  </div>
+</div>     
+</form>
+    </div>
     </div>)
 }
 

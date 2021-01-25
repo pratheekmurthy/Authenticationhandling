@@ -76,8 +76,14 @@ const Login =(props) =>{
     return (<div className="form">
         <h1>Login</h1>
         <form onSubmit={handleSubmit}>
-            <input type="email" placeholder="email" onChange={handleEmail}/><br/>{formErrors.email && <span> { formErrors.email } </span>}<br/>
-            <input type="password" placeholder="password" onChange={handlepassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/>
+        <div class="form-floating mb-3">
+  <input type="email" class="form-control" id="floatingInput" placeholder="Enter your Email-id" onChange={handleEmail}/>{formErrors.email && <span> { formErrors.email } </span>}
+</div>
+<div class="form-floating">
+  <input type="password" class="form-control" id="floatingPassword" placeholder="Enter your Password" onChange={handlepassword}/>{formErrors.password && <span> { formErrors.password } </span>}
+</div><br/>
+            {/* <input type="email" placeholder="email" onChange={handleEmail}/><br/>{formErrors.email && <span> { formErrors.email } </span>}<br/>
+            <input type="password" placeholder="password" onChange={handlepassword}/><br/>{formErrors.password && <span> { formErrors.password } </span>}<br/> */}
             <input type="submit" value="Login" className="submit"/><button className="cancel" onClick={handleCancel}>Cancel</button>
         </form>
         {login && <Redirect to="/"/>}

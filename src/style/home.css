@@ -14,7 +14,7 @@ img {
 }
 
 .leftcontent {
-  position: relative;
+  position: absolute;
   top: 81%;
   left: 5%;
   width: 40%;

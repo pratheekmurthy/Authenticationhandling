@@ -1,5 +1,6 @@
 import React,{useState,useEffect, Component} from 'react'
 import {Link, BrowserRouter,Route,Redirect} from 'react-router-dom'
+import 'bootstrap/dist/css/bootstrap.css'
 import Register from './Register'
 import Home from './Home'
 import Login from './Login'
@@ -50,9 +51,8 @@ const App=(props)=>{
     
     return (<div> 
         <BrowserRouter>
-        <div className="nav">
+        <div >
         <Link to="/">Home</Link>|{token ?(<Link to="/account">Account</Link>) : (<Link to="/register">register</Link>) } {token && <Link to="/mynotes"> |My notes</Link>}|{token ?(<Link to="/logout">Logout</Link>) : (<Link to="/login">Login</Link>) }</div>
-       
         <Route path="/" component={Home} exact={true}/>
         <Route path="/register" component={Register} exact={true}/>
         <Route path="/login" render={(props)=>(<Login {...props} handelogin={handelogin}/>)}/>
@@ -67,3 +67,6 @@ const App=(props)=>{
 
 
 export default App
+
+
+

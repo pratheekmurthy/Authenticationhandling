@@ -16,7 +16,8 @@ const NotesList =(props)=>{
             .then((response)=>{
                 const result=response.data
                 console.log(result)
-                swal(`Title - ${result.title} Body - ${result.body}`)     
+                swal(`Title - ${result.title} 
+                Body - ${result.body}`)     
           })
             .catch((err)=>{
                 alert(err.message)
@@ -32,12 +33,12 @@ const NotesList =(props)=>{
 
     return (<div>
         {notes.length === 0 ? (<div>
-            <h2>No Tasks found</h2>
+            <h4>No Tasks found</h4>
             <p>Add Your first task</p>
             </div>
             ):(
                 <div>
-                    <h2>My tasks - {notes.length}</h2>
+                    <h4>My tasks - {notes.length}</h4>
                     {
                         notes.map((note)=>{
                             return (

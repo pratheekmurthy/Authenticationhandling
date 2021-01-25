@@ -24,21 +24,30 @@ const Account =(props)=>{
 
 
     return (<div>
-        <h2>User Auth</h2>
+        <div class="card">
+  <div class="card-header">
+    Account Details
+  </div>
+  <div class="card-body">
+    <blockquote class="blockquote mb-0">
         <table>
             <tr>
-                <td><h3>username :</h3></td>
-                <td><h3>{data.username}</h3></td>
+                <td><p class="fw-bold">Username :</p></td>
+                <td><p class="fst-normal">{data.username}</p></td>
             </tr>
             <tr>
-                <td><h3>email : </h3></td>
-                <td><h3>{data.email}</h3></td>
+                <td><p>email : </p></td>
+                <td><p>{data.email}</p></td>
             </tr>
             <tr>
-                <td><h3>join date :</h3></td>
-                <td><h3>{data.createdAt}</h3></td>
+                <td><p>join date :</p></td>
+                <td><p>{data.createdAt}</p></td>
             </tr>
         </table>
+    </blockquote>
+  </div>
+</div>
+        
         
     </div>)
 }

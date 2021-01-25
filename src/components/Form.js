@@ -60,12 +60,18 @@ const Form=(props)=>{
     }
     
     return (<div className="form">
-        <h2>Register With Us</h2>
+        <h2 class="fs-2"> Register With Us</h2>
         <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Enter username" onChange={handleName}/><br/>{formErrors.name && <span className="font"> { formErrors.name } </span>}<br/>
-        <input type="email" placeholder="Enter email"onChange={handleEmail}/><br/>{formErrors.email && <span className="font"> { formErrors.email } </span>}<br/>
-        <input type="password" placeholder="Enter password" onChange={handlePassword}/><br/>{formErrors.password && <span className="font"> { formErrors.password } </span>}<br/>
-        <input type="submit" value="Register" className="submit"/><button className="cancel" onClick={handleCancel}>Cancel</button>
+        <div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">@</span>
+  <input type="text" class="form-control" placeholder="Enter your User Name" aria-label="Username" aria-describedby="addon-wrapping" onChange={handleName} /></div>{formErrors.name && <span className="font"> { formErrors.name } </span>}<br/>
+  <div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="Enter your email" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={handleEmail}/>
+  <span class="input-group-text" id="basic-addon2">@example.com</span></div><br/>{formErrors.email && <span className="font"> { formErrors.email } </span>}
+  <div class="input-group mb-3">
+  <input type="password" class="form-control" placeholder="Enter Password" aria-label="Recipient's username" aria-describedby="basic-addon2" onChange={handlePassword}/>
+</div>  {formErrors.password && <span className="font"> { formErrors.password } </span>}
+        <input type="submit" value="Register" class="btn btn-success"/><button class="btn btn-danger" onClick={handleCancel}>Cancel</button>
         </form>
         </div>)
 }

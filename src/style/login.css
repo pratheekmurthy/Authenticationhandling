@@ -27,3 +27,11 @@
   border-radius: 8px;
   font-style: oblique;
 }
+
+.cardsize {
+  width: 28rem;
+}
+
+.cardsize1 {
+  width: 18rem;
+}
