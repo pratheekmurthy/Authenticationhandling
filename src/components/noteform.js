@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
-import './style/login.css'
-import './style/addform.css'
+import '../style/login.css'
+import '../style/addform.css'
 import swal from 'sweetalert'
 
 

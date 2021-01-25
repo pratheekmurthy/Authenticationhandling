@@ -1,7 +1,7 @@
 import React from 'react'
 import {useState,useEffect} from 'react'
 import validator from 'validator'
-import './style/register.css'
+import '../style/register.css'
 
 
 const Form=(props)=>{

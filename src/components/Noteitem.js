@@ -1,7 +1,7 @@
 import React from 'react'
 import swal from 'sweetalert'
 import axios from 'axios'
-import './style/login.css'
+import '../style/login.css'
 
 
 

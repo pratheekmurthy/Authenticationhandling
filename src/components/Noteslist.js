@@ -1,10 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import {useDispatch,useSelector} from 'react-redux'
+import {getNotes} from '../actions/notesActions'
 import Noteitem from './Noteitem'
 import swal from 'sweetalert'
 
 const NotesList =(props)=>{
-    const {notes,setNotes,remove} = props
+    const notes = useSelector(state => state.notes)
+    const dispatch = useDispatch()
+
+    dispatch(getNotes())
+
+
     
     
     const showifnfo =(id)=>{
@@ -27,6 +34,8 @@ const NotesList =(props)=>{
     }
 
     
+
+    
     
 
     
@@ -43,7 +52,7 @@ const NotesList =(props)=>{
                         notes.map((note)=>{
                             return (
                                 // <Taskitem key={task.id} {...task} removeitem={removeitem} edititem={edititem}/>
-                                <Noteitem key={note._id} {...note} showifnfo={showifnfo}  notes={notes} setNotes={setNotes}/>
+                                <Noteitem _id={note._id} title={note.title} body={note.body}/>
                                 
                             )
                         })
