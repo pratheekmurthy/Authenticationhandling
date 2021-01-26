@@ -8,6 +8,7 @@ import swal from 'sweetalert'
 const NotesList =(props)=>{
     const notes = useSelector(state => state.notes)
     const dispatch = useDispatch()
+    
 
     dispatch(getNotes())
 
@@ -36,10 +37,6 @@ const NotesList =(props)=>{
     
 
     
-    
-
-    
-
     return (<div>
         {notes.length === 0 ? (<div>
             <h4>No Tasks found</h4>
@@ -52,7 +49,7 @@ const NotesList =(props)=>{
                         notes.map((note)=>{
                             return (
                                 // <Taskitem key={task.id} {...task} removeitem={removeitem} edititem={edititem}/>
-                                <Noteitem _id={note._id} title={note.title} body={note.body}/>
+                                <Noteitem _id={note._id} title={note.title} body={note.body} showifnfo={showifnfo}/>
                                 
                             )
                         })

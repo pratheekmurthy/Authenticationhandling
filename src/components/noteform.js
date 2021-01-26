@@ -1,5 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import axios from 'axios'
+import {useSelector,useDispatch} from 'react-redux'
+import {formSubmit} from '../actions/notesActions'
 import '../style/login.css'
 import '../style/addform.css'
 import swal from 'sweetalert'
@@ -8,70 +10,28 @@ import swal from 'sweetalert'
 
 
 const NoteForm =(props)=>{
-    const {notes,setNotes} = props
-    // const {formSubmit,isSaved,toggleIsSaved, id: slno, title:tasktitle,status :taskstatus} = props
-    // const {formSubmit} = props
+   const notes = useSelector(state=>state.notes)
+   const dispatch = useDispatch()
+
+
     const [title,setTitle] = useState("")
     const [body,setbody] =useState("")
     const [formErrors,setFormErrors] =useState({})
     const errors ={}
 
-    // useEffect(()=>{
-    //    if(isSaved){
-    //        setSattus(false)
-    //        setTitle("")
-    //        setId(uuidv4())
-    //        toggleIsSaved()
-    //    }
-
-    // },[isSaved])
-
-    const add=(note)=>{
-        setNotes([note,...notes])
-    }
-    
-    const formSubmit =(note)=>{
-        console.log(note)
-        
-        axios.post("http://dct-user-auth.herokuapp.com/api/notes",note,{
-            headers :{
-                "x-auth" : localStorage.getItem("token")
-            }
-        })
-            .then((response)=>{
-                const result=response.data
-                add(result)
-                swal("success!", "Succesfully Task Added", "success")
-                
-                
-          })
-            .catch((err)=>{
-                alert(err.message)
-            })
-            
-        
-           
-    }
-
     const runValidations =()=>{
         if(title.trim().length === 0){
             errors.name = 'title cannot be blank'
         }
-
     }
 
-    const handleTitle =(e)=>{
-        setTitle(e.target.value)
-    }
-
-    const handlebody =(e)=>{
-        setbody (e.target.value)
-    }
+    const handleTitle =(e)=>setTitle(e.target.value)
+    const handlebody =(e)=>setbody (e.target.value)
+    
 
     const handleSubmit =(e)=>{
         e.preventDefault()
         runValidations()
-
         if(Object.keys(errors).length === 0) {
             setFormErrors({})
             console.log(body)
@@ -79,14 +39,13 @@ const NoteForm =(props)=>{
                 title:title,
                 body:body
         }
-        formSubmit(formData)
+        dispatch(formSubmit(formData))
         setTitle("")
         setbody("")
         } else {
                 console.log('form errors', errors)
                 setFormErrors(errors)
                 }
-
     }
     
     
